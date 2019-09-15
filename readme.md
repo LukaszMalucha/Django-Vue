@@ -1,4 +1,1 @@
-# DJANGO REST CONCEPTS
-
-
---pycharm sync
+# DJANGO VUE
