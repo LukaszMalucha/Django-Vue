@@ -10,7 +10,8 @@ urlpatterns = [
          name="django_registration_register"),  # custom registration view provided by django via browser
     path("accounts/", include("django_registration.backends.one_step.urls")),  # other django urls package
     path("accounts/", include("django.contrib.auth.urls")),  # login urls provided by django for browser
-    path("api/", include("user.api.urls")),  #
+    path("api/", include("user.api.urls")),
+    path("api/", include("questions.api.urls")),
     path("api-auth/", include("rest_framework.urls")),  # login url for browser api
     path("api/rest-auth", include("rest_auth.urls")),   # login endpoint via rest
     path("api/rest-auth/registration", include("rest_auth.registration.urls")),  # registration via rest
