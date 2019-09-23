@@ -11,10 +11,10 @@ async function getJSON(response) {
 function apiService(endpoint, method, data) {
     const config = {
 //    Set GET as default
-        method: method || GET,
+        method: method || "GET",
 //        IF data is not undifined then JSON otherwise null
         body: data !== undefined ? JSON.stringify(data) : null,
-        headers {
+        headers: {
             'content-type': 'application/json',
             'X-CSRFTOKEN' : CSRF_TOKEN
         }
