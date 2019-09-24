@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'webpack_loader',
-    
+
     'user',
     'questions',
 ]
@@ -157,7 +157,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE' : 2
+    'PAGE_SIZE': 4
 }
 
 WEBPACK_LOADER = {
@@ -166,4 +166,3 @@ WEBPACK_LOADER = {
         'STATS_FILE': os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json'),
     }
 }
-
