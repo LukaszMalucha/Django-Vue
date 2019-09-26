@@ -14,7 +14,7 @@
             </p>
         </div>
         <div v-else-if="showForm">
-            <form class="card">
+            <form class="card" @submit.prevent="onSubmit">
                 <div class="card-header px-3">
                     Answer the Question
                 </div>
@@ -43,6 +43,13 @@
              :answer="answer"
              :key="index"
             />
+
+            <div class="my-4">
+             <p v-show="loadingAnswers">...loading...</p>
+            <button v-show="next" @click="getQuestionAnswers" class="btn btn-sm btn-outline-success">
+              Load More
+            </button>
+          </div>
         </div>
     </div>
 </template>
@@ -68,7 +75,9 @@ export default {
             newAnswerBody: null,
             error: null,
             userHasAnswered: false,
-            showForm: false
+            showForm: false,
+            next: null,
+            loadingAnswers: false
         }
     },
     methods: {
@@ -86,10 +95,38 @@ export default {
         },
         getQuestionAnswers() {
             let endpoint = `/api/questions/${this.slug}/answers/`;
+            if (this.next) {
+                endpoint = this.next;
+            }
+            this.loadingAnswers = true;
             apiService(endpoint)
             .then(data =>{
-                this.answers = data.results;
+                this.answers.push(...data.results);
+                this.loadingAnswers = false;
+                if (data.next) {
+                    this.next = data.next;
+                }
+                else {
+                    this.next = null;
+                }
             })
+        },
+        onSubmit() {
+            if (this.newAnswerBody) {
+                let endpoint = `/api/questions/${this.slug}/answer/`;
+                apiService(endpoint, "POST", {body: this.newAnswerBody})
+                .then(data => {
+                    this.answers.unshift(data)
+                    })
+                this.newAnswerBody = null;
+                this.showForm = false;
+                this.userHasAnswered = true;
+                if (this.error) {
+                    this.error = null;
+                }
+            } else {
+                this.error = "You can't send an empty answer!";
+            }
         }
     },
     created() {
