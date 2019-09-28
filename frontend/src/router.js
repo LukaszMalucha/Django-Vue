@@ -23,9 +23,10 @@ export default new Router({
       props: true
     },
     {
-      path: "/ask",
+      path: "/ask/:slug?",
       name: "question-editor",
-      component: QuestionEditor
+      component: QuestionEditor,
+      props: true
     },
     {
       path: "/answer/:id",
