@@ -1,28 +1,27 @@
 <template>
-    <div class="not-found">
-        <div class="container mt-3">
-            <h1 id="notFound">{{ message }}</h1>
-        </div>
+  <div class="not-found">
+    <div class="container mt-3">
+      <h1 id="notfound">{{ message }}</h1>
     </div>
+  </div>  
 </template>
 
 <script>
 export default {
-    name: "NotFound",
-    data() {
-        return {
-            message: "404 - Page Not Found"
-        }
+  name: "NotFound",
+  data() {
+    return {
+      message: "404 - Page Not Found"
     }
+  }
 }
-
 </script>
 
 <style scoped>
-#notFound {
-    color: red;
-    text-align: center;
+#notfound {
+  color: red;
+  text-align: center;
 }
-
-
 </style>
+
+

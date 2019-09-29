@@ -3,15 +3,13 @@
 
 {% block auth %}
 <h1>QuestionTime</h1>
-<p class="lead text-muted"> Knowledge is power.</p>
+<p class="lead text-muted">Share Your Knowledge!</p>
 <div class="login-form-container">
-
-    <form method="POST" action="">
+    <form method="POST">
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="btn btn-sm btn-outline-primary">Login</button>
     </form>
-    <p class="mt-2">Or <a href="{% url 'django_registration_register' %}">Create an Account</a></p>
+    <p class="mt-2">Or <a href="{% url 'django_registration_register' %}">Create an Account</a></p> 
 </div>
-
 {% endblock %}

@@ -20,7 +20,7 @@
             Answer the Question
           </div>
           <div class="card-block">
-            <textarea
+            <textarea 
               v-model="newAnswerBody"
               class="form-control"
               placeholder="Share Your Knowledge!"
@@ -46,7 +46,7 @@
       <h1 class="error text-center">404 - Question Not Found</h1>
     </div>
     <div v-if="question" class="container">
-      <AnswerComponent
+      <AnswerComponent 
         v-for="answer in answers"
         :answer="answer"
         :requestUser="requestUser"
@@ -196,6 +196,6 @@ export default {
 
 .error {
   font-weight: bold;
-  color: red;
+  color: red; 
 }
 </style>

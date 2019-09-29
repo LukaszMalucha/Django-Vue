@@ -6,7 +6,6 @@ import NotFound from "./views/NotFound.vue";
 import Question from "./views/Question.vue";
 import QuestionEditor from "./views/QuestionEditor.vue";
 
-
 Vue.use(Router);
 
 export default new Router({
@@ -18,12 +17,14 @@ export default new Router({
       component: Home
     },
     {
+      // with props: true, the slug parameter gets passed as a prop to the component
       path: "/question/:slug",
       name: "question",
       component: Question,
       props: true
     },
     {
+      // the ? sign makes the slug parameter optional
       path: "/ask/:slug?",
       name: "question-editor",
       component: QuestionEditor,
@@ -36,10 +37,9 @@ export default new Router({
       props: true
     },
     {
-      path: '*',
-      name: 'page-not-found',
+      path: "*",
+      name: "page-not-found",
       component: NotFound
-
     }
   ]
 });

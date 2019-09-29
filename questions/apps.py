@@ -6,4 +6,3 @@ class QuestionsConfig(AppConfig):
 
     def ready(self):
         import questions.signals
-

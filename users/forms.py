@@ -1,5 +1,6 @@
 from django_registration.forms import RegistrationForm
-from user.models import CustomUser
+from users.models import CustomUser
+
 
 class CustomUserForm(RegistrationForm):
 

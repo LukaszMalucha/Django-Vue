@@ -1,5 +1,6 @@
 # DJANGO VUE
 
+python manage.py runserver --insecure
 
 NPM & VUE setup
 
