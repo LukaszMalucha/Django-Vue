@@ -1,4 +1,4 @@
-# DJANGO VUE
+# DJANGO VUEBANK
 
 python manage.py runserver --insecure
 
